@@ -17,7 +17,38 @@ How to get into a docker container's commandline... execute a shell command from
 # Caddy
 2024/01/12:  
 Followed instructions to get Caddy via Docker (https://caddyserver.com/docs/install)
-Stored some placeholder config files in ~/workspace/caddy-files/ to play around with launching Caddy using `docker compose up -d`
+Stored some placeholder config files in ~/workspace/caddy-files/ to play around with launching Caddy using `docker compose up -d`.  
+Was able to get a "Hello World!" reply from a different computer while caddy was running on the ODROID in a docker container. Docker container needs to launch caddy and forward port 2015 using this compose.yaml:  
+```
+version: "3.9"
+
+services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      - "2015:2015"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
+```
+
+
+and then the Caddyfile just contained:  
+```
+:2015
+
+respond "Hello, world!"
+```
 
 
 # Nextcloud Setup
