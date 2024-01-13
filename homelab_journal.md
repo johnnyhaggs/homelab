@@ -50,6 +50,9 @@ and then the Caddyfile just contained:
 respond "Hello, world!"
 ```
 
+and I tested by visiting `192.168.50.90:2015` in web browser from another machine, or using curl.
+
+
 
 # Nextcloud Setup
 Installed Nextcloud using these All-In-One Docker Container instructions https://github.com/nextcloud/all-in-one#how-to-use-this
