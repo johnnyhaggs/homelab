@@ -52,6 +52,9 @@ respond "Hello, world!"
 
 and I tested by visiting `192.168.50.90:2015` in web browser from another machine, or using curl.
 
+### Other Tests
+* Then I turned on Tailscale and from my mac I could use the tailnet ip address of the odroid to reach the Hello World response (in browser or with curl).
+* Using tailnet hostname (haggs-odroid) only worked with curl... it did not work in a Brave browser.
 
 
 # Nextcloud Setup
