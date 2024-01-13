@@ -10,6 +10,10 @@ I did this because I was getting errors in the multi-container tutorial about ha
 How to make Docker Desktop run at bootup (from https://docs.docker.com/desktop/install/ubuntu/):  
 `systemctl --user enable docker-desktop`
 
+How to get into a docker container's commandline... execute a shell command from outside the host:  
+`docker exec -it mycontainer sh`  
+[more on docker exec](https://docs.docker.com/engine/reference/commandline/exec/)
+
 # Caddy
 2024/01/12:  
 Followed instructions to get Caddy via Docker (https://caddyserver.com/docs/install)
